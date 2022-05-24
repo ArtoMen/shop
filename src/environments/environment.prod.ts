@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  user: {
+    email: 'zen@sayollo.com',
+    password: '123456'
+  }
 };

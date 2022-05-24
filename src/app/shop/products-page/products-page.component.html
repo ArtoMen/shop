@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <div class="card" *ngFor="let product of products | async" [routerLink]="['/shop/product', product.id]">
+    <img [src]="product.img" alt="Loading ...">
+    <div>
+      <h3>{{ product.name | title }}</h3>
+      <small>{{ product.cost | currency }}</small>
+    </div>
+  </div>
+</div>

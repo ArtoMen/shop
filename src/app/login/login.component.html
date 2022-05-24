@@ -1,0 +1,21 @@
+<div>
+  <h2>Login</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label for="login_input">Email</label>
+    <input type="email" id="login_input" formControlName="email">
+    <div class="errors">
+      <small class="error" *ngIf="email.touched && email.getError('required')">Field is required</small>
+      <small class="error" *ngIf="email.touched && email.getError('email')">Email is invalid</small>
+    </div>
+
+
+    <label for="password_input">Password</label>
+    <input type="password" id="password_input" formControlName="password">
+    <div class="errors">
+      <small class="error" *ngIf="password.touched && password.getError('required')">Field is required</small>
+      <small class="error" *ngIf="password.touched && password.getError('minlength')">Length is invalid</small>
+    </div>
+    <button class="btn yellow" [disabled]="!form.valid">Login</button>
+  </form>
+</div>
+

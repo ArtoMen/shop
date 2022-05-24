@@ -1,0 +1,14 @@
+div:first-child {
+  display: flex;
+  justify-content: right;
+  background: #C4C4C4;
+  padding: 10px 25px;
+
+  a {
+    color: black;
+  }
+}
+
+.content {
+  height: max(calc(100vh - 45px), 100%);
+}
