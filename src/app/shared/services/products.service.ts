@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from "../interfaces/interfaces";
-import { filter, from, Observable, of } from "rxjs";
+import { find, from, Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -33,8 +33,11 @@ export class ProductsService {
     }
   ]
 
-  findById(id: number): Observable<Product> {
-    return from(this.products).pipe(filter((e) => e.id === id));
+  findById(id: number): Observable<Product | undefined> {
+    return from(this.products)
+      .pipe(
+        find((e) => e.id === id)
+      );
   }
 
   getProducts(): Observable<Product[]> {

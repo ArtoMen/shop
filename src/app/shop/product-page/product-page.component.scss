@@ -4,3 +4,53 @@
   left: 25px;
   color: black;
 }
+
+.product {
+  padding: 50px 35px 0 35px;
+
+  img {
+    width: 308px;
+    height: 236px;
+    margin-bottom: 25px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .quantity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    p {
+      margin: 0;
+      padding-right: 15px;
+
+      &:last-of-type {
+        padding: 0 10px;
+      }
+    }
+
+    button {
+      border-radius: 100px;
+      border: 0;
+      background: #C4C4C4;
+      font-size: 14px;
+      padding: 1px 8px;
+    }
+  }
+}
+
+

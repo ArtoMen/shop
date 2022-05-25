@@ -10,6 +10,7 @@ import { CartPageComponent } from "./cart-page/cart-page.component";
 import { CheckoutPageComponent } from "./checkout-page/checkout-page.component";
 import { CheckoutFormPageComponent } from "./checkout-form-page/checkout-form-page.component";
 import { PurchasePageComponent } from "./purchase-page/purchase-page.component";
+import { NzIconModule } from "ng-zorro-antd/icon";
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    NzIconModule,
 
   ],
   providers: [
