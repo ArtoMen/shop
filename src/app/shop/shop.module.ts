@@ -1,16 +1,15 @@
 import { NgModule } from "@angular/core";
 import { ShopComponent } from "./shop.component";
-import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { ProductsPageComponent } from "./products-page/products-page.component";
-import { AuthGuard } from "../shared/guards/auth.guard";
-import { TitlePipe } from "../shared/pipes/title.pipe";
+import { AuthGuard } from "../core/guards/auth.guard";
 import { ProductPageComponent } from "./product-page/product-page.component";
 import { CartPageComponent } from "./cart-page/cart-page.component";
 import { CheckoutPageComponent } from "./checkout-page/checkout-page.component";
 import { CheckoutFormPageComponent } from "./checkout-form-page/checkout-form-page.component";
 import { PurchasePageComponent } from "./purchase-page/purchase-page.component";
-import { NzIconModule } from "ng-zorro-antd/icon";
+import {CoreModule} from "../core/core.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const routes: Routes = [
   {
@@ -30,6 +29,26 @@ const routes: Routes = [
       {
         path: 'product/:id',
         component: ProductPageComponent
+      },
+      {
+        path: 'cart',
+        component: CartPageComponent
+      },
+      {
+        path: 'checkout-form',
+        component: CheckoutFormPageComponent
+      },
+      {
+        path: 'checkout',
+        component: CheckoutPageComponent
+      },
+      {
+        path: 'purchase',
+        component: PurchasePageComponent
+      },
+      {
+        path: '**',
+        redirectTo: '/shop/products'
       }
     ]
   }
@@ -44,13 +63,11 @@ const routes: Routes = [
     CheckoutPageComponent,
     CheckoutFormPageComponent,
     PurchasePageComponent,
-    TitlePipe
   ],
   imports: [
-    CommonModule,
+    CoreModule,
     RouterModule.forChild(routes),
-    NzIconModule,
-
+    ReactiveFormsModule,
   ],
   providers: [
 

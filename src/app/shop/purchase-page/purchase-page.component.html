@@ -1,1 +1,12 @@
-<p>purchase-page works!</p>
+<div class="container" *ngIf="(orderNumber | async) as number; else indicatorTemplate">
+  <h2>Thank you for your purchase</h2>
+  <h3>Your order number:</h3>
+  <h2>{{ number }}</h2>
+</div>
+
+<ng-template #indicatorTemplate>
+  <div class="loadContainer">
+    <i nz-icon nzType="loading" class="load"></i>
+  </div>
+</ng-template>
+

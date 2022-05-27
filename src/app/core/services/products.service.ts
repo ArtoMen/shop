@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from "../interfaces/interfaces";
-import { find, from, Observable, of } from "rxjs";
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class ProductsService {
     },
     {
       id: 1,
-      name: 'ASUS Laptop X415FA-EB013',
+      name: 'ASUS Laptop X415FA-EB0131111111111111111',
       description: 'Экран 14" IPS (1920x1080) Full HD, матовый / Intel Core i3-10110U (2.1 - 4.1 ГГц) / RAM 8 ГБ / SSD 256 ГБ / Intel UHD Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.6 кг / серый',
       img: 'https://content.rozetka.com.ua/goods/images/big/252123791.jpg',
       cost: 1749
@@ -33,11 +33,8 @@ export class ProductsService {
     }
   ]
 
-  findById(id: number): Observable<Product | undefined> {
-    return from(this.products)
-      .pipe(
-        find((e) => e.id === id)
-      );
+  findById(id: number): Product | undefined {
+    return this.products.find(elem => elem.id === id);
   }
 
   getProducts(): Observable<Product[]> {

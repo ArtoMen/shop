@@ -1,1 +1,24 @@
-<p>checkout-form-page works!</p>
+<div class="wrapper" *ngIf="cart | async">
+  <h2>Checkout</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Email</label>
+    <input type="email" formControlName="email">
+
+    <label>Full name</label>
+    <input type="text" formControlName="fullName">
+
+    <label>Address</label>
+    <input type="text" formControlName="address">
+
+    <label>Phone</label>
+    <input type="tel" formControlName="phone">
+
+    <label>Credit cart number</label>
+    <input type="text" formControlName="credit">
+
+    <label>CVV</label>
+    <input type="text" formControlName="cvv">
+
+    <button class="btn yellow">Pay {{ cart | async | detail | sum | currency }}</button>
+  </form>
+</div>

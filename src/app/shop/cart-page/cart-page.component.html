@@ -1,1 +1,34 @@
-<p>cart-page works!</p>
+<a [routerLink]="['/shop']" class="back">Back</a>
+
+<div class="items">
+  <ng-container *ngIf="(cartService.getCart() | async) as cart">
+    <div class="item" *ngFor="let item of cart | detail">
+
+      <div class="row">
+        <div>
+          <img [src]="item.img" alt="Loading ...">
+          <h4>{{ item.name | title: 25 }}</h4>
+        </div>
+        <button class="btn red" (click)="deleteItem(item.orderNumber)">Delete</button>
+      </div>
+
+      <div class="row">
+        <p>Order Number: {{ item.orderNumber }}</p>
+        <p>Ordered Date: {{ item.orderDate | date:'d MMM y' }}</p>
+      </div>
+
+      <div class="row">
+        <p>Quantity: {{ item.count }}</p>
+        <p>Price for one: {{ item.cost | currency }}</p>
+      </div>
+
+      <div class="row">
+        <p>Total price: {{ item.cost * item.count | currency }}</p>
+      </div>
+    </div>
+
+    <div class="buttons" >
+      <button class="btn yellow" routerLink="/shop/checkout-form">Pay {{ cart | detail | sum | currency }}</button>
+    </div>
+  </ng-container>
+</div>

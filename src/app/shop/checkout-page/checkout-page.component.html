@@ -1,1 +1,22 @@
-<p>checkout-page works!</p>
+<ng-container *ngIf="(checkout | async) as checkout">
+  <div class="container" *ngIf="(cart | async) as cart">
+    <h2>Checkout</h2>
+
+    <p>Personal information</p>
+
+    <div>
+      <p>{{ checkout.fullName }}</p>
+      <p>{{ checkout.address }}</p>
+      <p>{{ checkout.phone }}</p>
+      <p>Credit cart: {{ checkout.credit | creditCart }}</p>
+      <p>CVV: ***</p>
+    </div>
+
+    <button class="btn yellow" (click)="buy()">Pay {{ cart | detail | sum | currency }}</button>
+  </div>
+</ng-container>
+
+<div class="load" *ngIf="!checkout || !cart">
+  <ng-template #indicatorTemplate><i nz-icon nzType="loading"></i></ng-template>
+  <nz-spin nzSimple [nzIndicator]="indicatorTemplate"></nz-spin>
+</div>

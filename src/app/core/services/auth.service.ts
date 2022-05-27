@@ -17,9 +17,4 @@ export class AuthService {
     return of(user.email === environment.user.email && user.password === environment.user.password)
       .pipe(take(1));
   }
-
-  logout() {
-    localStorage.removeItem('user');
-    this.router.navigate(['login']).catch(err => console.log(err));
-  }
 }

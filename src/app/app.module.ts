@@ -12,23 +12,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { LoginModule } from "./login/login.module";
 import { ShopModule } from "./shop/shop.module";
+import {CoreModule} from "./core/core.module";
 
 registerLocaleData(uk);
 
 @NgModule({
   declarations: [
-    AppComponent,
+      AppComponent,
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzMessageModule,
     LoginModule,
-    ShopModule
+    ShopModule,
+    CoreModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: uk_UA }],
+  providers: [{provide: NZ_I18N, useValue: uk_UA}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

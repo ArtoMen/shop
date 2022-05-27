@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../shared/services/auth.service";
-import {LoginUser} from "../shared/interfaces/interfaces";
+import {AuthService} from "../core/services/auth.service";
+import {LoginUser} from "../core/interfaces/interfaces";
 import {NzMessageService} from "ng-zorro-antd/message";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 

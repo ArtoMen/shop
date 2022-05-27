@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TitlePipe implements PipeTransform {
 
-  transform(value: string): string {
-    if(value.length > 30) {
-      value = value.slice(0, 30);
+  transform(value: string, length: number): string {
+    if(value.length > length - 3) {
+      value = value.slice(0, length - 3);
       value += '...';
     }
     return value;

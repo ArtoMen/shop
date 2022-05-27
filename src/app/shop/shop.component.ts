@@ -1,16 +1,24 @@
-import {Component} from "@angular/core";
-import {AuthService} from "../shared/services/auth.service";
+import {Component, OnInit} from "@angular/core";
+import {CartService} from "../core/services/cart.service";
+import {Observable} from "rxjs";
+import {CartItem} from "../core/interfaces/interfaces";
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent {
-  constructor(private auth: AuthService) {
+export class ShopComponent implements OnInit {
+  cart$!: Observable<CartItem[]>;
+
+  constructor(
+    private cart: CartService
+  ) {
   }
 
-  logout() {
-    this.auth.logout();
+  ngOnInit() {
+    this.cart$ = this.cart.getCart();
   }
+
 }
+

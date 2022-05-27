@@ -7,6 +7,10 @@
   margin: 0;
 }
 
+body {
+  min-height: 100vh;
+}
+
 button.btn {
   width: 100%;
   height: 35px;
@@ -32,3 +36,11 @@ button.btn {
   font-size: 12px;
   padding-top: 5px;
 }
+
+.back {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  color: black;
+}
+

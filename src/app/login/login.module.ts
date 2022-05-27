@@ -3,7 +3,7 @@ import { LoginComponent } from "./login.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "../shared/guards/auth.guard";
+import { AuthGuard } from "../core/guards/auth.guard";
 
 const routes: Routes = [
   {

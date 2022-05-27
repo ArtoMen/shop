@@ -1,0 +1,45 @@
+.items {
+  background: #F4F4F4;
+  min-height: calc(100% - 45px);
+
+  .buttons {
+    text-align: center;
+    button {
+      width: 300px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.item {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  img {
+    width: 48px;
+    height: 32px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      h4 {
+        margin: 0;
+      }
+    }
+    button {
+      width: 100px;
+    }
+
+    &:first-child {
+      padding-bottom: 10px;
+      border-bottom: 1px solid black;
+      margin-bottom: 10px;
+    }
+  }
+}

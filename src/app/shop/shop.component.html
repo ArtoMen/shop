@@ -1,6 +1,4 @@
-<div>
-  <a href="#">Cart (0)</a>
+<div *ngIf="cart$ | async">
+  <a routerLink="/shop/cart">Cart ({{ cart$ | async | length }})</a>
 </div>
-<div class="content">
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { CartService } from "../../core/services/cart.service";
 
 @Component({
   selector: 'app-cart-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public cartService: CartService,
+  ) { }
 
   ngOnInit(): void {
   }
 
+  deleteItem(orderNumber: number) {
+    this.cartService.deleteByNumber(orderNumber);
+  }
 }
