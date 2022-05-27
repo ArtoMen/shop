@@ -1,23 +1,15 @@
-import {Component, OnInit} from "@angular/core";
-import {CartService} from "../core/services/cart.service";
-import {Observable} from "rxjs";
-import {CartItem} from "../core/interfaces/interfaces";
+import { Component } from "@angular/core";
+import { CartService } from "../core/services/cart.service";
 
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
-  cart$!: Observable<CartItem[]>;
-
+export class ShopComponent {
   constructor(
-    private cart: CartService
+    public cart: CartService
   ) {
-  }
-
-  ngOnInit() {
-    this.cart$ = this.cart.getCart();
   }
 
 }

@@ -26,9 +26,9 @@ export class CheckoutPageComponent implements OnInit {
     this.checkout = this.checkoutService.getInfo();
   }
 
-  buy() {
+  buy(): void {
     this.checkoutService.createOrder();
     this.cartService.deleteAll();
-    this.router.navigate(['/shop/purchase']).catch(err => console.log(err));
+    this.router.navigate(['/shop', 'purchase']).catch(err => console.log(err));
   }
 }

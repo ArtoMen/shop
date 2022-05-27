@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../core/services/products.service";
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { take } from "rxjs";
+import {catchError, EMPTY, take} from "rxjs";
 import {CartItem, Product} from "../../core/interfaces/interfaces";
 import {CartService} from "../../core/services/cart.service";
 import {map} from "rxjs/operators";
@@ -27,11 +27,12 @@ export class ProductPageComponent implements OnInit {
     this.route.params
       .pipe(
         map((e: Params) => this.products.findById(Number(e['id']))),
-        take(1)
+        take(1),
+        catchError( () => EMPTY)
       )
       .subscribe((elem) => {
         if(!elem) {
-          this.router.navigate(['/shop/products']).catch(err => console.log(err));
+          this.router.navigate(['/shop', 'products']).catch(err => console.log(err));
         }
         this.product = elem;
       });
@@ -57,6 +58,6 @@ export class ProductPageComponent implements OnInit {
       orderDate: new Date(),
     }
     this.cartService.addToCart(item);
-    this.router.navigate(['/shop/cart']).catch(err => console.log(err));
+    this.router.navigate(['/shop', 'cart']).catch(err => console.log(err));
   }
 }

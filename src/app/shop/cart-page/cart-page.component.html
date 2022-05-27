@@ -7,8 +7,10 @@
       <div class="row">
         <div>
           <img [src]="item.img" alt="Loading ...">
+
           <h4>{{ item.name | title: 25 }}</h4>
         </div>
+
         <button class="btn red" (click)="deleteItem(item.orderNumber)">Delete</button>
       </div>
 
@@ -27,8 +29,8 @@
       </div>
     </div>
 
-    <div class="buttons" >
-      <button class="btn yellow" routerLink="/shop/checkout-form">Pay {{ cart | detail | sum | currency }}</button>
-    </div>
+      <div class="buttons" *ngIf="(cart | detail | sum) as sum">
+        <button class="btn yellow" routerLink="/shop/checkout-form" >Pay {{ sum | currency }}</button>
+      </div>
   </ng-container>
 </div>

@@ -7,6 +7,10 @@ import {NzMessageService} from "ng-zorro-antd/message";
 import {CheckoutService} from "../../core/services/checkout.service";
 import {Router} from "@angular/router";
 
+enum FORM_ERRORS {
+  Invalid = 'Enter valid info'
+}
+
 @Component({
   selector: 'app-checkout-form-page',
   templateUrl: './checkout-form-page.component.html',
@@ -71,7 +75,7 @@ export class CheckoutFormPageComponent implements OnInit {
 
   onSubmit(): void {
     if(!this.form.valid) {
-      this.message.error('Enter valid info');
+      this.message.error(FORM_ERRORS.Invalid);
     } else {
       this.checkoutService.setInfo(this.form.value as CheckoutInfo);
       this.router.navigate(['shop/checkout']).catch(err => console.log(err));

@@ -5,7 +5,6 @@ import {DetailPipe} from "./pipes/detail.pipe";
 import {SumPipe} from "./pipes/sum.pipe";
 import {LengthPipe} from "./pipes/length.pipe";
 import {NzIconModule} from "ng-zorro-antd/icon";
-import {GetFieldPipe} from "./pipes/getField.pipe";
 import {NzSpinModule} from "ng-zorro-antd/spin";
 import {CreditCartPipe} from "./pipes/credit-cart.pipe";
 
@@ -15,7 +14,6 @@ import {CreditCartPipe} from "./pipes/credit-cart.pipe";
     DetailPipe,
     SumPipe,
     LengthPipe,
-    GetFieldPipe,
     CreditCartPipe
   ],
   imports: [
@@ -29,7 +27,6 @@ import {CreditCartPipe} from "./pipes/credit-cart.pipe";
     DetailPipe,
     SumPipe,
     LengthPipe,
-    GetFieldPipe,
     NzIconModule,
     NzSpinModule,
     CreditCartPipe

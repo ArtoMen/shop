@@ -12,10 +12,10 @@ export class CartService {
     this.init();
   }
 
-  addToCart(item: CartItem):void {
+  addToCart(item: CartItem): void {
     const cart = [item, ...this.source$.getValue()];
     this.source$.next(cart);
-    this.save();
+    this.saveCartToLocalStorage();
   }
 
   getCart(): Observable<CartItem[]> {
@@ -23,22 +23,22 @@ export class CartService {
   }
 
   deleteByNumber(orderNumber: number): void {
-    const arr = [...this.source$.getValue()].filter(el => el.orderNumber !== orderNumber);
+    const arr = this.source$.getValue().filter(el => el.orderNumber !== orderNumber);
     this.source$.next(arr);
-    this.save();
+    this.saveCartToLocalStorage();
   }
 
-  deleteAll() {
+  deleteAll(): void {
     this.source$.next([]);
-    this.save();
+    this.saveCartToLocalStorage();
   }
 
-  private save(): void {
+  private saveCartToLocalStorage(): void {
     const cart = this.source$.getValue();
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  private init() {
+  private init(): void {
     this.source$.next(this.getCartFromLocalStorage());
   }
 

@@ -23,20 +23,23 @@ export class CheckoutService {
     return this.info$.asObservable();
   }
 
-  init() {
-    this.info$.next(this.loadInfoWithLocalStorage())
+  init(): void {
+    const info = this.loadInfoWithLocalStorage();
+    if(info) {
+      this.info$.next(info);
+    }
   }
 
-  loadInfoWithLocalStorage() {
+  loadInfoWithLocalStorage(): CheckoutInfo | null {
     return JSON.parse(localStorage.getItem('checkout')!);
   }
 
-  createOrder() {
+  createOrder(): void {
     const number = Math.floor(Math.random() * 8000000) + 1000000;
     this.order$.next(number);
   }
 
-  getOrder() {
-    return this.order$;
+  getOrder(): Observable<number>  {
+    return this.order$.asObservable();
   }
 }

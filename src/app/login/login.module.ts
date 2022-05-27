@@ -3,12 +3,12 @@ import { LoginComponent } from "./login.component";
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "../core/guards/auth.guard";
+import {AuthResolverGuard} from "../core/guards/authResolver.guard";
 
 const routes: Routes = [
   {
     path: 'login',
-    resolve: [AuthGuard],
+    resolve: [AuthResolverGuard],
     component: LoginComponent
   }
 ]

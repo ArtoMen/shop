@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {LoginUser} from "../interfaces/interfaces";
 import {environment} from "../../../environments/environment";
-import { Observable, of, take } from "rxjs";
+import { Observable, of } from "rxjs";
 import {Router} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
@@ -14,7 +14,6 @@ export class AuthService {
       localStorage.setItem('user', JSON.stringify({email: user.email}));
       this.router.navigate(['shop']).catch(err => console.log(err));
     }
-    return of(user.email === environment.user.email && user.password === environment.user.password)
-      .pipe(take(1));
+    return of(user.email === environment.user.email && user.password === environment.user.password);
   }
 }
